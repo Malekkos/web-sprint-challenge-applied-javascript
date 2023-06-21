@@ -24,7 +24,7 @@ const Header = (title, date, temp) => {
   headerElement.appendChild(dateElement);
   headerElement.appendChild(titleElement);
   headerElement.appendChild(tempElement);
-  console.log(headerElement);
+  // console.log(headerElement);
   return headerElement;
 }
 
@@ -35,6 +35,11 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+  
+  const newHeader = Header("23", "fourth", "unanimous");
+  console.log(newHeader);
+  const gottenSelector = document.querySelector(`${selector}`)
+  gottenSelector.appendChild(newHeader);
 
   // HINT: querySelector can take in a string (ie querySelector("#wrapper")) 
   // but it can also take in a variable (ie querySelector(selector))
