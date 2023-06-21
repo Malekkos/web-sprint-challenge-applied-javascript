@@ -36,7 +36,7 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
   
-  const newHeader = Header("23", "fourth", "unanimous");
+  const newHeader = Header("BloomTech Times", "November 22nd, 2006", "28");
   console.log(newHeader);
   const gottenSelector = document.querySelector(`${selector}`)
   gottenSelector.appendChild(newHeader);
