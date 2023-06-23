@@ -37,7 +37,7 @@ const headerAppender = (selector) => {
   //
   
   const newHeader = Header("BloomTech Times", "November 22nd, 2006", "28");
-  console.log(newHeader);
+  // console.log(newHeader);
   const gottenSelector = document.querySelector(`${selector}`)
   gottenSelector.appendChild(newHeader);
 

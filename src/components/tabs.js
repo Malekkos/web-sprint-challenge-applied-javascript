@@ -15,21 +15,18 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  
   console.log(topics);
-    const topicsElement = document.createElement("div");
-    const firstTab = document.createElement("div");
-    const secondTab = document.createElement("div");
-    const thirdTab = document.createElement("div");
-    topicsElement.classList = "topics";
-    firstTab.classList = "tab";
-    secondTab.classList = "tab";
-    thirdTab.classList = "tab";
-    firstTab.textContent = topics[0];
-    secondTab.textContent = topics[1];
-    thirdTab.textContent = topics[2];
-    topicsElement.appendChild(firstTab);
-    topicsElement.appendChild(secondTab);
-    topicsElement.appendChild(thirdTab);
+  const topicsElement = document.createElement("div");
+  topicsElement.classList = "topics";
+  
+  topics.forEach(val => {
+    const tab = document.createElement("div");
+    tab.classList = "tab";
+    topicsElement.appendChild(tab);
+    tab.textContent = val;
+    console.log(tab);
+  })
     console.log(topicsElement);
     
   return topicsElement
@@ -48,11 +45,12 @@ const tabsAppender = (selector) => {
   const gottenSelector = document.querySelector(`${selector}`);
   axios.get(`http://localhost:5001/api/topics`)
   .then(res => {
-    const firstTab = res.data[0];
-    firstTab.innerHTML = ""
-    const secondTab = res.data[1];
-    const thirdTab = res.data[2];
-    gottenSelector.appendChild(firstTab);
+    console.log("This is the tabs appender", res);
+    
+      const result = Tabs(res.data.topics);
+      console.log(result);
+      gottenSelector.appendChild(result);
+    
   })
   .catch(err => {
     console.log(err);
